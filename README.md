@@ -7,7 +7,7 @@ This project is built as a front-end application using React and Redux Toolkit a
 ---
 
 ## Live Demo
-[https://kamyad.github.io/e-plantShopping/](https://kamyad.github.io/e-plantShopping/)
+https://kamyad.github.io/e-plantShopping/
 
 ---
 
