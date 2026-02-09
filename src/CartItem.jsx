@@ -27,7 +27,6 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
 
-
   const handleIncrement = (item) => {
     console.log("Incrementing quantity for item:", item);
     dispatch(updateQuantity(item.plant));
@@ -44,6 +43,8 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return (parseFloat(item.plant.cost.substring(1)) * item.quantity).toFixed(2); 
+
     
 
   };
@@ -53,7 +54,7 @@ const CartItem = ({ onContinueShopping }) => {
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
         {cart.map(item => (
-          <div className="cart-item" key={item.name}>
+          <div className="cart-item" key={item.plant.name}>
             <img className="cart-item-image" src={item.plant.image} alt={item.plant.name} />
             <div className="cart-item-details">
               <div className="cart-item-name">{item.plant.name}</div>

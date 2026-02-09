@@ -246,7 +246,6 @@ function ProductList({ onHomeClick }) {
 
         dispatch(addItem(plant));
         setAddedToCart(prevState => ({ ...prevState, [plant.name]: true }));
-       
     }
     
     const handleHomeClick = (e) => {
@@ -268,6 +267,8 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
+
+   
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -306,7 +307,15 @@ function ProductList({ onHomeClick }) {
                                 <h3 className="product-title">{plant.name}</h3>
                                 <p>{plant.description}</p>
                                 <p className="product-price">{plant.cost}</p>
-                                <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                <button 
+                                className="product-button" onClick={() => handleAddToCart(plant)}
+                                disabled={addedToCart[plant.name]}
+                                style={{
+                                    backgroundColor: addedToCart[plant.name] ? "#ccc" : "#4CAF50",
+                                    cursor: addedToCart[plant.name] ? "not-allowed" : "pointer"
+                                }}
+                                
+                                >{addedToCart[plant.name] ? "Added to cart" : "Add to cart"}</button>
                             </div>
                             ))}
                         </div>
